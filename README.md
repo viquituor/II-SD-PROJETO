@@ -36,13 +36,10 @@ O sistema é dividido em dois scripts Python:
 
 ### **cliente.py (O Cliente)**
 
-*Contém os dados de teste (24h de medições).
-
-*Conecta-se ao servidor via Socket TCP.
-
-*Envia a requisição e aguarda a resposta (bloqueante).
-
-*Exibe os dados de previsão formatados.
+    *Contém os dados de teste (24h de medições).
+    *Conecta-se ao servidor via Socket TCP.
+    *Envia a requisição e aguarda a resposta (bloqueante).
+    *Exibe os dados de previsão formatados.
 
 ## 🛠️ Requisitos
 
@@ -58,38 +55,38 @@ pip install numpy
 
 Como é uma aplicação Cliente-Servidor, é necessário abrir dois terminais (prompts de comando) separados.
 
-1. **Iniciar o Servidor**
+1. Iniciar o Servidor
 
-*No primeiro terminal, execute o servidor. Ele ficará em loop aguardando conexões.
+No primeiro terminal, execute o servidor. Ele ficará em loop aguardando conexões.
 
-```bash
-python servidor_mt.py
-```
+    ```bash
+    python servidor_mt.py
+    ```
 
-*Saída esperada: Servidor Multithread ouvindo em 127.0.0.1:65432...
+Saída esperada: Servidor Multithread ouvindo em 127.0.0.1:65432...
 
-1. **Executar o Cliente**
+1. Executar o Cliente
 
-*No segundo terminal, execute o cliente para enviar os dados.
+No segundo terminal, execute o cliente para enviar os dados.
 
-```bash
-python cliente.py
-```
+    ```bash
+    python cliente.py
+    ```
 
-1. **Verificar o Resultado**
+1. Verificar o Resultado
 
-*No terminal do Servidor: Verá 4 barras de progresso a encherem simultaneamente (simulando o trabalho das threads).
+No terminal do Servidor: Verá 4 barras de progresso a encherem simultaneamente (simulando o trabalho das threads).
 
-*No terminal do Cliente: Receberá a resposta JSON e verá as médias calculadas:
+No terminal do Cliente: Receberá a resposta JSON e verá as médias calculadas:
 
-```bash
-=== RESPOSTA DO SERVIDOR ===
-Recebidas 22 previsões suavizadas:
+    ```bash
+    === RESPOSTA DO SERVIDOR ===
+    Recebidas 22 previsões suavizadas:
 
-Janela 1: 19.33°C
-Janela 2: 21.33°C
-...
-```
+    Janela 1: 19.33°C
+    Janela 2: 21.33°C
+    ...
+    ```
 
 ## ⚙️ Configuração de Rede (Opcional)
 
