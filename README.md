@@ -22,27 +22,27 @@ Implementámos um servidor que utiliza o padrão ThreadPool para dividir o cálc
 
 O sistema é dividido em dois scripts Python:
 
-### servidor_mt.py (O Servidor)
+### **servidor_mt.py (O Servidor)**
 
-Fica à escuta na porta TCP 65432.
+*Fica à escuta na porta TCP 65432.
 
-Recebe um payload JSON contendo a lista de temperaturas.
+*Recebe um payload JSON contendo a lista de temperaturas.
 
-Multithreading: Divide os dados em "chunks" e atribui cada parte a uma thread real.
+*Multithreading: Divide os dados em "chunks" e atribui cada parte a uma thread real.
 
-Visualização: Exibe barras de progresso concorrentes no terminal para demonstrar o paralelismo.
+*Visualização: Exibe barras de progresso concorrentes no terminal para demonstrar o paralelismo.
 
-Retorna o resultado processado ao cliente.
+*Retorna o resultado processado ao cliente.
 
-### cliente.py (O Cliente)
+### **cliente.py (O Cliente)**
 
-Contém os dados de teste (24h de medições).
+*Contém os dados de teste (24h de medições).
 
-Conecta-se ao servidor via Socket TCP.
+*Conecta-se ao servidor via Socket TCP.
 
-Envia a requisição e aguarda a resposta (bloqueante).
+*Envia a requisição e aguarda a resposta (bloqueante).
 
-Exibe os dados de previsão formatados.
+*Exibe os dados de previsão formatados.
 
 ## 🛠️ Requisitos
 
@@ -58,29 +58,29 @@ pip install numpy
 
 Como é uma aplicação Cliente-Servidor, é necessário abrir dois terminais (prompts de comando) separados.
 
-### 1. Iniciar o Servidor
+1. **Iniciar o Servidor**
 
-No primeiro terminal, execute o servidor. Ele ficará em loop aguardando conexões.
+*No primeiro terminal, execute o servidor. Ele ficará em loop aguardando conexões.
 
 ```bash
 python servidor_mt.py
 ```
 
-Saída esperada: Servidor Multithread ouvindo em 127.0.0.1:65432...
+*Saída esperada: Servidor Multithread ouvindo em 127.0.0.1:65432...
 
-### 1. Executar o Cliente
+1. **Executar o Cliente**
 
-No segundo terminal, execute o cliente para enviar os dados.
+*No segundo terminal, execute o cliente para enviar os dados.
 
 ```bash
 python cliente.py
 ```
 
-### 1. Verificar o Resultado
+1. **Verificar o Resultado**
 
-No terminal do Servidor: Verá 4 barras de progresso a encherem simultaneamente (simulando o trabalho das threads).
+*No terminal do Servidor: Verá 4 barras de progresso a encherem simultaneamente (simulando o trabalho das threads).
 
-No terminal do Cliente: Receberá a resposta JSON e verá as médias calculadas:
+*No terminal do Cliente: Receberá a resposta JSON e verá as médias calculadas:
 
 ```bash
 === RESPOSTA DO SERVIDOR ===
